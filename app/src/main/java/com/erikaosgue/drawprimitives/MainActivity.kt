@@ -13,13 +13,17 @@ class MainActivity : AppCompatActivity() {
  		activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
 
-		val drawingALine = DrawingALine(this)
-		val drawImage = Drawing(this)
+		val drawingALineAndCircle = DrawingALineAndCircle(this)
+		val drawImage = DrawingImage(this)
+		val customTextView = CustomTextView(this, null)
 
-		drawingALine.setOnClickListener{
+		drawingALineAndCircle.setOnClickListener{
 			Toast.makeText(this, "Hello There", Toast.LENGTH_LONG).show()
 		}
+
+//		setContentView(drawingALineAndCircle)
 		setContentView(drawImage)
+//		setContentView(customTextView)
 
 	}
 }
