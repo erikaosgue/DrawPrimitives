@@ -1,31 +1,26 @@
 package com.erikaosgue.drawprimitives
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
+import android.graphics.*
+import android.util.Log
 import android.view.View
 
-class DrawingALine(context: Context?) : View(context) {
-
-    private lateinit var brush: Paint
-    private lateinit var lineBrush: Paint
+class Drawing(context: Context?) : View(context) {
+    lateinit var brushImage: Paint
+    val bitmap = BitmapFactory.decodeResource(resources, R.drawable.tortuga)
 
     override fun draw(canvas: Canvas?) {
-        brush = Paint(Paint.ANTI_ALIAS_FLAG)
-        lineBrush = Paint(Paint.ANTI_ALIAS_FLAG)
+        brushImage = Paint(Paint.ANTI_ALIAS_FLAG)
 
-        // Add width value to the Line
-        lineBrush.strokeWidth = 13f
+        bitmap.width
+        bitmap.height
 
-
-        brush.color = Color.parseColor("green")
-        lineBrush.color = Color.MAGENTA
-
-        canvas?.drawCircle((measuredWidth/2).toFloat(),
-            (measuredHeight/2).toFloat(), 24f, brush)
-
-        canvas?.drawLine(0F,0F,measuredWidth/2F, measuredHeight/2F, lineBrush)
+        val matrix =  Matrix()
+        matrix.postScale(0.1f,0.1f)
+        //(measuredWidth/2 - bitmap.width/2), (measuredHeight/2 - bitmap.height/2
+        val i = measuredWidth/2 - 300
+        val dest = Rect(i-100, i*2, i*4, i*4)
+        canvas?.drawBitmap(bitmap, null, dest, brushImage)
         canvas?.save()
         super.draw(canvas)
     }

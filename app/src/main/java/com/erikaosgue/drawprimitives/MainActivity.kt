@@ -14,11 +14,12 @@ class MainActivity : AppCompatActivity() {
 
 
 		val drawingALine = DrawingALine(this)
+		val drawImage = Drawing(this)
 
 		drawingALine.setOnClickListener{
 			Toast.makeText(this, "Hello There", Toast.LENGTH_LONG).show()
 		}
-		setContentView(drawingALine)
+		setContentView(drawImage)
 
 	}
 }
